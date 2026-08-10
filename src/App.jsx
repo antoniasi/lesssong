@@ -19,15 +19,15 @@ export default function App() {
 
   const audioRef = useRef(null);
 
-  useEffect(() => {
+useEffect(() => {
     async function loadDailySong() {
       try {
         const tracks = await searchTracks('Reggae');
-        if (tracks.length > 0) {
+        if (tracks && tracks.length > 0) {
           setTargetSong(tracks[0]);
         }
       } catch (err) {
-        console.error('Erro ao carregar música do Spotify:', err);
+        console.error('Erro ao carregar música:', err);
       }
     }
     loadDailySong();
